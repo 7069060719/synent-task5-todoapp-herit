@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow — To-Do App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <h1>Task<span>Flow</span> ✓</h1>
+      <div class="date-badge" id="dateDisplay"></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progressText">0 / 0 completed</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- ADD TASK -->
+  <div class="add-box">
+    <div class="add-row">
+      <input class="add-input" id="taskInput" placeholder="What needs to be done?" maxlength="120"
+             onkeydown="if(event.key==='Enter') addTask()" />
+      <button class="btn-add" onclick="addTask()">+</button>
+    </div>
+    <div class="tag-row">
+      <button class="tag work" onclick="selectTag('work')">💼 Work</button>
+      <button class="tag personal" onclick="selectTag('personal')">🏠 Personal</button>
+      <button class="tag study" onclick="selectTag('study')">📚 Study</button>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+    <button class="filter-btn" onclick="setFilter('active', this)">Active</button>
+    <button class="filter-btn" onclick="setFilter('done', this)">Done</button>
+  </div>
+
+  <!-- TASK LIST -->
+  <div class="task-list" id="taskList"></div>
+
+  <!-- BOTTOM -->
+  <div class="bottom-row">
+    <button class="clear-btn" onclick="clearDone()">Clear completed</button>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="num" id="statTotal">0</div><p>Total</p></div>
+    <div class="stat"><div class="num" id="statActive">0</div><p>Active</p></div>
+    <div class="stat"><div class="num" id="statDone">0</div><p>Done</p></div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
