@@ -32,8 +32,7 @@ function handleLogin() {
     passErr.classList.add('show');
     valid = false;
   }
-
-  // If valid, simulate login
+// If all fields are valid, simulate login and show success message
   if (valid) {
     const btn = document.getElementById('loginBtn');
     btn.textContent = 'Signing in…';
